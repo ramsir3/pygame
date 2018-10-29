@@ -5,28 +5,24 @@ from entity import player
 from constants import WINDOW_SIZE, DIRECTION, CONTROLS
 
 def init():
-    pg.init()
-
     w = world('assets/level.dat')
-    p = player(pos=[3,3], world=w)
+    w.addEntitiy(player(pos=[3,3], image='assets/pika.png'))
     screen = pg.display.set_mode(WINDOW_SIZE)
 
     def update():
         for e in pg.event.get():
             if e.type == pg.QUIT: sys.exit()
             if e.type == pg.KEYDOWN:
-                if e.key in CONTROLS:
-                    p.move(CONTROLS[e.key])
-                    print(p.pos)
+                w.update(e)
 
     def draw():
         w.draw(screen)
-        p.draw(screen)
         pg.display.flip()  
 
     return update, draw
 
 if __name__ == '__main__':
+    pg.init()
     update, draw = init()
     while 1:       
         update()
