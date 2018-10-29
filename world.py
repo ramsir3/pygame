@@ -34,7 +34,7 @@ class world(object):
         elif (isinstance(e, entity)):
             self._entities.append(e)
 
-    def update(self, event):
+    def updateEvents(self, event):
         if event.key in CONTROLS:
             c = CONTROLS[event.key]
             if isinstance(c, DIRECTION):
@@ -51,3 +51,19 @@ class world(object):
         for e in self._entities:
             e.update()
         
+    # def updateKeys(self, keys):
+    #     if 1 in keys: print(keys)
+    #     for k in CONTROLS:
+    #         # if keys[k]: print(keys[k])
+    #         if keys[k]:
+    #             c = CONTROLS[k]
+    #             if isinstance(c, ACTION):
+    #                 if c == ACTION.INTERACT:
+    #                     v = self._player.facing.value                    
+    #                     ipos = self._player.pos[0]+v[0], self._player.pos[1]+v[1]
+    #                     if not self.oob(ipos):
+    #                         item = self._grid[ipos[0]][ipos[1]]
+    #                         print(INTERACT_MAP[item])
+    #             if isinstance(c, DIRECTION):
+    #                 self._player.move(c, self.collision)
+    #                 print(self._player.pos)
