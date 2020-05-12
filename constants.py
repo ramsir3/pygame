@@ -1,9 +1,10 @@
 from enum import Enum
 import pygame as pg
 
-WORLD_SIZE = (60,60)
-WINDOW_SIZE = (600,600)
+TILE_SIZE = (60,60)
+WINDOW_SIZE = (660,660)
 KEYPRESS_DELAY, KEYPRESS_INTERVAL = 300, 100
+
 class DIRECTION(Enum):
     UP=(-1,0)
     RIGHT=(0,1)
